@@ -1,7 +1,7 @@
 {
-  "name": "scot.macpherson/phpcoord",
-  "description": "Repackeged phpcoord.php script in to composer project",
-  "minimum-stability": "stable",
+  "name": "chrismacp/phpcoord",
+  "description": "Repackeged phpcoord.php script in to composer package",
+  "minimum-stability": "dev",
   "license": "proprietary",
   "authors": [
     {
@@ -9,23 +9,9 @@
       "email": "phpcoord@jstott.me.uk"
     }
   ],
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "scot.macpherson/phpcoord",
-        "version": "dev-master",
-        "source": {
-          "url": "git://github.com/chrismacp/phpcoord.git",
-          "type": "git",
-          "reference": "master"
-        },
-        "autoload": {
-          "psr-4" : {
-            "macpherson/scot/phpcoord" : "src"
-          }
-        }
-      }
+  "autoload": {
+    "psr-0" : {
+      "Phpcoord\\" : "src/"
     }
-  ]
+  }
 }

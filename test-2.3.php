@@ -29,9 +29,9 @@
 
   require_once("vendor/autoload.php");
 
-  use macpherson\scot\phpcoord\OSRef;
-  use macpherson\scot\phpcoord\UTMRef;
-  use macpherson\scot\phpcoord\LatLng;
+  use Phpcoord\OSRef;
+  use Phpcoord\UTMRef;
+  use Phpcoord\LatLng;
 
   ///////////////////////////////////////////////////////////////////////////////////////////
   //// I haven't tested whether this page works after conversion to composer package !!! ////

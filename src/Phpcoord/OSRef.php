@@ -1,6 +1,8 @@
 <?php
+namespace Phpcoord;
 
-namespace macpherson\scot\phpcoord;
+use Phpcoord\RefEll,
+    Phpcoord\LatLng;
 
 /**
  * This code was originally written for phpcoord as mentioned below.
@@ -36,8 +38,8 @@ namespace macpherson\scot\phpcoord;
  */
 class OSRef {
 
-    private $easting;
-    private $northing;
+    public $easting;
+    public $northing;
     
     private function sec($x)
     {
@@ -47,6 +49,11 @@ class OSRef {
     private function sinSquared($x)
     {
         return sin($x) * sin($x);
+    }
+
+    private function tanSquared($x)
+    {
+        return tan($x) * tan($x);
     }
     
     /**
@@ -171,32 +178,32 @@ class OSRef {
         $VIII =
             (tan($phiPrime) / (24.0 * $rho * pow($v, 3.0)))
             * (5.0
-                + (3.0 * tanSquared($phiPrime))
+                + (3.0 * $this->tanSquared($phiPrime))
                 + $etaSquared
-                - (9.0 * tanSquared($phiPrime) * $etaSquared));
+                - (9.0 * $this->tanSquared($phiPrime) * $etaSquared));
         $IX =
             (tan($phiPrime) / (720.0 * $rho * pow($v, 5.0)))
             * (61.0
-                + (90.0 * tanSquared($phiPrime))
-                + (45.0 * tanSquared($phiPrime) * tanSquared($phiPrime)));
+                + (90.0 * $this->tanSquared($phiPrime))
+                + (45.0 * $this->tanSquared($phiPrime) * $this->tanSquared($phiPrime)));
         $X = $this->sec($phiPrime) / $v;
         $XI =
             ($this->sec($phiPrime) / (6.0 * $v * $v * $v))
-            * (($v / $rho) + (2 * tanSquared($phiPrime)));
+            * (($v / $rho) + (2 * $this->tanSquared($phiPrime)));
         $XII =
             ($this->sec($phiPrime) / (120.0 * pow($v, 5.0)))
             * (5.0
-                + (28.0 * tanSquared($phiPrime))
-                + (24.0 * tanSquared($phiPrime) * tanSquared($phiPrime)));
+                + (28.0 * $this->tanSquared($phiPrime))
+                + (24.0 * $this->tanSquared($phiPrime) * $this->tanSquared($phiPrime)));
         $XIIA =
             ($this->sec($phiPrime) / (5040.0 * pow($v, 7.0)))
             * (61.0
-                + (662.0 * tanSquared($phiPrime))
-                + (1320.0 * tanSquared($phiPrime) * tanSquared($phiPrime))
+                + (662.0 * $this->tanSquared($phiPrime))
+                + (1320.0 * $this->tanSquared($phiPrime) * $this->tanSquared($phiPrime))
                 + (720.0
-                    * tanSquared($phiPrime)
-                    * tanSquared($phiPrime)
-                    * tanSquared($phiPrime)));
+                    * $this->tanSquared($phiPrime)
+                    * $this->tanSquared($phiPrime)
+                    * $this->tanSquared($phiPrime)));
         $phi =
             $phiPrime
             - ($VII * pow($E - $E0, 2.0))

@@ -1,6 +1,9 @@
 <?php
 
-namespace macpherson\scot\phpcoord;
+namespace Phpcoord;
+
+use Phpcoord\RefEll,
+    Phpcoord\LatLng;
 
 /**
  * This code was originally written for phpcoord as mentioned below.
@@ -33,10 +36,10 @@ namespace macpherson\scot\phpcoord;
 
 class UTMRef {
 
-    private $easting;
-    private $northing;
-    private $latZone;
-    private $lngZone;
+    public $easting;
+    public $northing;
+    public $latZone;
+    public $lngZone;
 
 
     /**

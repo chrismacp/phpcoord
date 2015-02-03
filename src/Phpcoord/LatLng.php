@@ -1,5 +1,9 @@
 <?php
-namespace macpherson\scot\phpcoord;
+namespace Phpcoord;
+
+use Phpcoord\RefEll,
+    Phpcoord\UTMRef,
+    Phpcoord\OSRef;
 
 /**
  * This code was originally written for phpcoord as mentioned below.
@@ -33,8 +37,8 @@ namespace macpherson\scot\phpcoord;
 class LatLng
 {
 
-    private $lat;
-    private $lng;
+    public $lat;
+    public $lng;
 
     private function tanSquared($x)
     {

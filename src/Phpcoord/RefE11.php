@@ -1,6 +1,6 @@
 <?php
 
-namespace macpherson\scot\phpcoord;
+namespace Phpcoord;
 
 /**
  * This code was originally written for phpcoord as mentioned below.
@@ -33,9 +33,9 @@ namespace macpherson\scot\phpcoord;
 
 class RefEll {
 
-    var $maj;
-    var $min;
-    var $ecc;
+    public $maj;
+    public $min;
+    public $ecc;
 
 
     /**
